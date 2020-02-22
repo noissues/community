@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller // 告诉 Spring 这是一个 Controller
-public class HelloController {
+public class IndexController {
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+    
     @GetMapping("/hello") // 确保对 /hello 的 Get 请求映射到 hello() 方法上
     public String hello(@RequestParam(name = "name", defaultValue = "root") String name,
                         Model model) {
